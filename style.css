@@ -1,0 +1,157 @@
+/* we target the body with the body tag and set of curly braces,and inside we usually put what we want to change on the whole webiste,ie.
+background color,font size .. */
+body {
+  background-color: lightgrey;
+  font-family: Arial, Helvetica, sans-serif;
+  /* this line-height usally is used to set the distance between lines of text */
+  line-height: 1.6;
+  /* removes all the margin the webpages have automatic */
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  /* make the text we targeted thick */
+  font-weight: bold;
+  /* centers the text to the center */
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+/* we target the elements sometimes without classes because there will be only one form on this webpage,if there are more,it is
+recommended to use classes */
+form {
+  /* display flex ofcourse our sweetheart,mostly used to center items,but when we first use display flex,everything will be set next to each
+  other */
+  display: flex;
+  /* justify content is used mostly when we center the content horizontally */
+  justify-content: center;
+  /* brings everything to the center vertically */
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 8px;
+}
+
+.search-input {
+  width: 60%;
+  /* this max-width is going to limit the input from going wider when we have a bigger screen */
+  max-width: 400px;
+  padding: 10px 20px;
+  /* removes the border that the input has on default */
+  border: none;
+  /* 0px for horizontal shadow,0px for vertical shadow and 5px for blurness */
+  /* red green blue alpha ,the alpha or the 0.9 value is the transparency  */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  /* border-radius make the corners round  */
+  border-radius: 5px;
+  font-size: 18px;
+}
+/* we make it this way so it is similair to the input  */
+.search-button {
+  padding: 10px 20px;
+  background-color: rgb(41, 122, 237);
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  /* when hover over it is a hand instead of classic mouse pointer */
+  cursor: pointer;
+}
+/* when we hover over the button it can have different values,example a different background-color */
+.search-button:hover {
+  background-color: rgb(84, 138, 238);
+}
+
+.search-results {
+  /* once again,we gave the display:flex property to a parent element,so the child elements will be next to each other 
+  and then we can align them horizontally using the justify-content property and vertically using the align-items property */
+  display: flex;
+  /* flex-wrap is used when the screen gets to small for example,the items wrap in the next line because they do not fit all in one line */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* we use 1200px because it is a common breakpoint for large screens */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+/* now we are going to style the images,all the images divs have the same classes so it will apply to all of them */
+.search-result {
+  margin-bottom: 60px;
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px;
+  /* overflow: hidden CSS property tells the browser to clip any content that overflows the element's box. This means that the content will be hidden, but it will still take up space in the layout. */
+  overflow: hidden;
+}
+
+/* this CSS property makes it when we hover over the images to kinda pop a little bit */
+.search-result:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+/* this wil target all the img elements inside the divs with the class search-result */
+.search-result img {
+  /* makes the image width to 100 perecent of the webpage */
+  width: 100%;
+  height: 200px;
+  /* tells the browser to resize the image so it fits in the box,the image will be cropped so it fills the box completely without being stretched 
+  or squished  */
+  object-fit: cover;
+}
+
+.search-result a {
+  padding: 10px;
+  /* CSS property display: block; tells the browser to display an element as a block-level element
+
+Block-level elements are elements that start on a new line and take up the full width of their container */
+  display: block;
+  color: rgb(104, 102, 102);
+  /* removes the underline from the anchor tag for example */
+  text-decoration: none;
+  text-align: center;
+}
+
+.search-result:hover a {
+  background-color: rgba(127, 126, 126, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.show-more-button {
+  padding: 10px 20px;
+  background-color: rgb(41, 122, 237);
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  /* we make the button block so it takes the whole line width and center it with margin 0 auto,or in this case 20px to make space from above and under */
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+  /* we gonna show it in Javascript after we load our first data */
+  display: none;
+}
+
+.show-more-button:hover {
+  background-color: rgb(84, 138, 238);
+}
+/* tells the browser to apply the CSS styles inside the curly braces to any device with a screen width of 768px or less */
+@media screen and (max-width: 768px) {
+  /* tells the browser to set the width of all .search-result elements to 45% on any device with a screen width of 768px or less. */
+  .search-result {
+    width: 45%;
+  }
+}
+
+/* tells the browser to apply the CSS styles inside the curly braces to any device with a screen width of 480px or less */
+@media screen and (max-width: 480px) {
+  /* tells the browser to set the width of all .search-result elements to 100% on any device with a screen width of 480px or less. */
+  .search-result {
+    width: 100%;
+  }
+  /* targets the form when it on 480px or less screen size */
+  form {
+    flex-direction: column;
+  }
+}
